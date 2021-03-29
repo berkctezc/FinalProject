@@ -8,7 +8,8 @@ namespace Entities.Abstract
 {
     //IEntity implement eden class bir veritabanı tablosudur
     //Entities projesinde bütün concreteler bu interfacei implement etsin
-    class IEntity
+    public class IEntity
     {
+
     }
 }
