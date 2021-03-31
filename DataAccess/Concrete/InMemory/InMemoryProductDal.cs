@@ -45,7 +45,6 @@ namespace DataAccess.Concrete.InMemory
         }
 
 
-
         public void Update(Product product)
         {
             //////////////////////////////_products: bütün productların bulundugu listemiz (memory)
