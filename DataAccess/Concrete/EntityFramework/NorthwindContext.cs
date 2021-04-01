@@ -10,12 +10,12 @@ namespace DataAccess.Concrete.EntityFramework
 {
 
     //Context: Db tabloları ile proje classlarını bağlamak icin yapılır
-    class NorthwindContext : DbContext //EF'den geliyor
+    public class NorthwindContext : DbContext //EF'den geliyor
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Veritabanımıza bağlanıyoruz
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Northwind;Tursted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Northwind;Trusted_Connection=true");
         }
 
         //DB'de hangi nesne burada hangi nesneye karşılık gelecek?
