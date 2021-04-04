@@ -13,6 +13,17 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //ProductTest();
+
+            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+            foreach(var category in categoryManager.GetAll())
+            {
+                Console.WriteLine(category.CategoryName);
+            }
+        }
+
+        private static void ProductTest()
+        {
             //ProductManager productManager = new ProductManager(new InMemoryProductDal());
             ProductManager productManager = new ProductManager(new EfProductDal());
 
@@ -36,7 +47,7 @@ namespace ConsoleUI
 
             Console.WriteLine("-----GetByUnitPrice-----");
 
-            foreach (var prod in productManager.GetByUnitPrice(50,100))
+            foreach (var prod in productManager.GetByUnitPrice(50, 100))
             {
                 Console.WriteLine(
                     "Ürün: {0} | Ücret: {1} | Stoktaki Ürün Sayısı: {2}"
