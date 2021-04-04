@@ -13,10 +13,21 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //ProductTest();
+            //DTO: Data Transformation Object 
 
+            ProductTest();
+            //IoC
+            //CategoryTest();
+        
+        }
+
+
+
+        //Tests
+        private static void CategoryTest()
+        {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-            foreach(var category in categoryManager.GetAll())
+            foreach (var category in categoryManager.GetAll())
             {
                 Console.WriteLine(category.CategoryName);
             }
@@ -52,6 +63,15 @@ namespace ConsoleUI
                 Console.WriteLine(
                     "Ürün: {0} | Ücret: {1} | Stoktaki Ürün Sayısı: {2}"
                     , prod.ProductName, prod.UnitPrice, prod.UnitsInStock);
+            }
+
+            Console.WriteLine("-----Details with DTO-----");
+
+            foreach (var prod in productManager.GetProductDetails())
+            {
+                Console.WriteLine(
+                    "Ürün: {0} / {1}"
+                    , prod.ProductName, prod.CategoryName);
             }
         }
     }
