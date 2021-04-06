@@ -40,7 +40,7 @@ namespace ConsoleUI
 
             Console.WriteLine("-----GetAll-----");
 
-            foreach (var prod in productManager.GetAll())
+            foreach (var prod in productManager.GetAll().Data)
             {
                 Console.WriteLine(
                     "Ürün: {0} | Ücret: {1} | Stoktaki Ürün Sayısı: {2}"
@@ -49,7 +49,7 @@ namespace ConsoleUI
 
             Console.WriteLine("-----GetAllByCategoryId-----");
 
-            foreach (var prod in productManager.GetAllByCategoryId(2))
+            foreach (var prod in productManager.GetAllByCategoryId(2).Data)
             {
                 Console.WriteLine(
                     "Ürün: {0} | Ücret: {1} | Stoktaki Ürün Sayısı: {2}"
@@ -58,7 +58,7 @@ namespace ConsoleUI
 
             Console.WriteLine("-----GetByUnitPrice-----");
 
-            foreach (var prod in productManager.GetByUnitPrice(50, 100))
+            foreach (var prod in productManager.GetByUnitPrice(50, 100).Data)
             {
                 Console.WriteLine(
                     "Ürün: {0} | Ücret: {1} | Stoktaki Ürün Sayısı: {2}"
@@ -67,11 +67,27 @@ namespace ConsoleUI
 
             Console.WriteLine("-----Details with DTO-----");
 
-            foreach (var prod in productManager.GetProductDetails())
+            foreach (var prod in productManager.GetProductDetails().Data)
             {
                 Console.WriteLine(
                     "Ürün: {0} / {1}"
                     , prod.ProductName, prod.CategoryName);
+            }
+
+            Console.WriteLine("----Result Sonrası---");
+
+            var result = productManager.GetProductDetails();
+
+            if (result.Success == true)
+            {
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName+"/"+product.CategoryName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
         }
     }

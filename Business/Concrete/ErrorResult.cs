@@ -1,14 +1,15 @@
-﻿using Core.Utilities.Results;
-
-namespace Business.Concrete
+﻿namespace Core.Utilities.Results
 {
-    internal class ErrorResult : IResult
+    public class ErrorResult : Result
     {
-        public ErrorResult(string v)
+        public ErrorResult(string message) : base(false, message)
         {
-            V = v;
+
         }
 
-        public string V { get; }
+        public ErrorResult() : base(false)
+        {
+
+        }
     }
 }
