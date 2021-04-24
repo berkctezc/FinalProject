@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Linq;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 
 
 namespace ConsoleUI
