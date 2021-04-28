@@ -63,6 +63,8 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
 
             }
+
+            app.ConfigureCustomExceptionMiddleware();
             
             //bu adresten gelen isteklere güven
             app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
