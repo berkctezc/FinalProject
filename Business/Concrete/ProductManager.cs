@@ -19,8 +19,9 @@ namespace Business.Concrete
     public class ProductManager : IProductService
     {
         //injection
-        IProductDal _productDal;
-        ICategoryService _categoryService;
+        private IProductDal _productDal;
+
+        private ICategoryService _categoryService;
 
         public ProductManager(IProductDal productDal, ICategoryService categoryService)
         {

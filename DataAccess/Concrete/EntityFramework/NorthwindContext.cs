@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-
     //Context: Db tabloları ile proje classlarını bağlamak icin yapılır
     public class NorthwindContext : DbContext //EF'den geliyor
     {
@@ -16,6 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         //DB'de hangi nesne burada hangi nesneye karşılık gelecek?
         public DbSet<Product> Products { get; set; }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }

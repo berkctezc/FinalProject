@@ -2,8 +2,8 @@
 using Core.CrossCuttingConcerns.Caching;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
-using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
 
 namespace Core.Aspects.Autofac.Caching
 {

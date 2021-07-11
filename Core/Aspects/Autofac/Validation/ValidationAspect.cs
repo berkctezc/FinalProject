@@ -1,15 +1,16 @@
-﻿using System;
-using System.Linq;
-using Castle.DynamicProxy;
+﻿using Castle.DynamicProxy;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Interceptors;
 using FluentValidation;
+using System;
+using System.Linq;
 
 namespace Core.Aspects.Autofac.Validation
 {
     public class ValidationAspect : MethodInterception //Aspect
     {
         private Type _validatorType;
+
         public ValidationAspect(Type validatorType)
         {
             //defensive coding
@@ -20,6 +21,7 @@ namespace Core.Aspects.Autofac.Validation
 
             _validatorType = validatorType;
         }
+
         protected override void OnBefore(IInvocation invocation)
         {
             var validator = (IValidator)Activator.CreateInstance(_validatorType);

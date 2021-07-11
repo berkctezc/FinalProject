@@ -1,17 +1,17 @@
 ﻿using Core.Utilities.IoC;
 using Microsoft.Extensions.Caching.Memory;
-using System;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Core.CrossCuttingConcerns.Caching.Microsoft
 {
     public class MemoryCacheManager : ICacheManager
     {
         //Adapter Pattern
-        IMemoryCache _memoryCache;
+        private IMemoryCache _memoryCache;
 
         public MemoryCacheManager()
         {
@@ -20,7 +20,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 
         public void Add(string key, object value, int duration)
         {
-            _memoryCache.Set(key,value,TimeSpan.FromMinutes(duration));
+            _memoryCache.Set(key, value, TimeSpan.FromMinutes(duration));
         }
 
         public T Get<T>(string key)
@@ -35,7 +35,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 
         public bool IsAdd(string key)
         {
-           return _memoryCache.TryGetValue(key, out _);
+            return _memoryCache.TryGetValue(key, out _);
         }
 
         public void Remove(string key)

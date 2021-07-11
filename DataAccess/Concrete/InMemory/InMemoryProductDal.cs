@@ -10,7 +10,8 @@ namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryProductDal : IProductDal
     {
-        List<Product> _products;
+        private List<Product> _products;
+
         public InMemoryProductDal()
         {
             _products = new List<Product> {
@@ -21,6 +22,7 @@ namespace DataAccess.Concrete.InMemory
                 new Product{ProductId=5,CategoryId=2,ProductName="Fare",UnitPrice=85,UnitsInStock=1 }
             };
         }
+
         public void Add(Product product)
         {
             _products.Add(product);
@@ -44,7 +46,6 @@ namespace DataAccess.Concrete.InMemory
             return _products;
         }
 
-
         public void Update(Product product)
         {
             //////////////////////////////_products: bütün productların bulundugu listemiz (memory)
@@ -58,6 +59,7 @@ namespace DataAccess.Concrete.InMemory
             productToUpdate.UnitPrice = product.UnitPrice;
             productToUpdate.UnitsInStock = product.UnitsInStock;
         }
+
         public List<Product> GetAllByCategory(int categoryId)
         {
             //koşula uyan elemanlarla yeni bir liste oluşturup döndürür

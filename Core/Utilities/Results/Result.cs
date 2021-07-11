@@ -8,6 +8,7 @@
             //setter yok fakat constructorda set edilip sonradan set edilmemesi için
             Message = message;
         }
+
         public Result(bool success)
         {
             Success = success;

@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using Business.Abstract;
+﻿using Business.Abstract;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
+using System.Collections.Generic;
 
 namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
-        IUserDal _userDal;
+        private IUserDal _userDal;
 
         public UserManager(IUserDal userDal)
         {

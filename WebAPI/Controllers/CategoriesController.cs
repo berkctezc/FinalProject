@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Business.Abstract;
+﻿using Business.Abstract;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
@@ -8,11 +8,12 @@ namespace WebAPI.Controllers
     public class CategoriesController : ControllerBase
     {
         private ICategoryService _categoryService;
+
         public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
-
         }
+
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
@@ -23,6 +24,5 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
     }
 }

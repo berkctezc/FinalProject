@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Business.ValidationRoutes.FluentValidation
 {
-    public class ProductValidator:AbstractValidator<Product>
+    public class ProductValidator : AbstractValidator<Product>
     {
         public ProductValidator()
         {

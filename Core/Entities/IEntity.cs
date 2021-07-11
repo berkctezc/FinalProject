@@ -4,6 +4,5 @@
     //Entities projesinde bütün concreteler bu interfacei implement etsin
     public interface IEntity
     {
-
     }
 }

@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 
-
 namespace WebAPI
 {
     public class Startup
@@ -50,7 +49,7 @@ namespace WebAPI
                       IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                   };
               });
-            services.AddDependencyResolvers(new ICoreModule[] { 
+            services.AddDependencyResolvers(new ICoreModule[] {
             new CoreModule()
             });
         }
@@ -61,13 +60,12 @@ namespace WebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
             }
 
             app.ConfigureCustomExceptionMiddleware();
-            
+
             //bu adresten gelen isteklere güven
-            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
