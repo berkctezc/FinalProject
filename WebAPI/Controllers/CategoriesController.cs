@@ -7,7 +7,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private ICategoryService _categoryService;
+        private readonly ICategoryService _categoryService;
 
         public CategoriesController(ICategoryService categoryService)
         {

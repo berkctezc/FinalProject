@@ -10,7 +10,7 @@ namespace Core.Extensions
 {
     public class ExceptionMiddleware
     {
-        private RequestDelegate _next;
+        private readonly RequestDelegate _next;
 
         public ExceptionMiddleware(RequestDelegate next)
         {
@@ -35,11 +35,10 @@ namespace Core.Extensions
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
             string message = "Internal Server Error";
-            IEnumerable<ValidationFailure> errors;
             if (e.GetType() == typeof(ValidationException))
             {
                 message = e.Message;
-                errors = ((ValidationException)e).Errors;
+                var errors = ((ValidationException)e).Errors;
                 httpContext.Response.StatusCode = 400;
 
                 return httpContext.Response.WriteAsync(new ValidationErrorDetails
